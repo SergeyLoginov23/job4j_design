@@ -52,6 +52,4 @@ class NameLoadTest {
                 .hasMessageContaining("does not contain a value")
                 .hasMessageContaining(name);
     }
-
-
 }
