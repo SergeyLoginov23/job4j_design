@@ -49,7 +49,7 @@ class BoxTest {
         assertThat(vertex).isNotZero()
                 .isPositive()
                 .isEven()
-                .isGreaterThan(4);
+                .isGreaterThan(6);
     }
 
     @Test
