@@ -81,6 +81,4 @@ class BoxTest {
         assertThat(area).isEqualTo(113d, withPrecision(0.1d))
                  .isGreaterThan(100d);
     }
-
-
 }
