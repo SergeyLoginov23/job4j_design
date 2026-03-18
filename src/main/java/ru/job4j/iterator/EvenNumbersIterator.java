@@ -23,7 +23,6 @@ public class EvenNumbersIterator implements Iterator<Integer> {
         if (!hasNext()) {
             throw new NoSuchElementException();
         }
-        moveToNext();
         return data[index++];
     }
 
