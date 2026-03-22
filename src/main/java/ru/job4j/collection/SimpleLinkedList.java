@@ -3,6 +3,7 @@ package ru.job4j.collection;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.ConcurrentModificationException;
+import java.util.Objects;
 
 public class SimpleLinkedList<E> implements SimpleLinked<E> {
 
@@ -28,9 +29,7 @@ public class SimpleLinkedList<E> implements SimpleLinked<E> {
 
     @Override
     public E get(int index) {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException();
-        }
+        Objects.checkIndex(index, size);
         Node<E> current = head;
         for (int i = 0; i < index; i++) {
             current = current.next;
