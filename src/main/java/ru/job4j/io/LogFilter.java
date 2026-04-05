@@ -17,7 +17,7 @@ public class LogFilter {
             for (String line = input.readLine(); line != null; line = input.readLine()) {
                 String[] words = line.trim().split("\\s+");
                 if (words.length >= 2) {
-                    if (words[words.length - 2].equals("404")) {
+                    if ("404".equals(words[words.length - 2])) {
                         lines404.add(line);
                     }
                 }
