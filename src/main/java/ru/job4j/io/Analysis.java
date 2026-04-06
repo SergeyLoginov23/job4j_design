@@ -6,6 +6,7 @@ public class Analysis {
     public void unavailable(String source, String target) {
         boolean servUp = true;
         String servDownStart = null;
+        StringBuilder sb = new StringBuilder();
         try (BufferedReader input = new BufferedReader(new FileReader(source));
              BufferedWriter writer = new BufferedWriter(new FileWriter(target))) {
                 for (String line = input.readLine(); line != null; line = input.readLine()) {
@@ -22,8 +23,11 @@ public class Analysis {
                         } else {
                             if ("200".equals(status) || "300".equals(status)) {
                                 servUp = true;
-                                writer.write(servDownStart + ";" + time + ";");
-                                writer.newLine();
+                                sb.append(servDownStart);
+                                sb.append(";");
+                                sb.append(time);
+                                sb.append(";");
+                                sb.append(System.lineSeparator());
                                 servDownStart = null;
 
                             }
@@ -31,9 +35,13 @@ public class Analysis {
                     }
                 }
                 if (!servUp && servDownStart != null) {
-                    writer.write(servDownStart + ";" + "Сервер все еще недоступен! Обратитесь к администратору");
-                    writer.newLine();
+                    sb.append(servDownStart);
+                    sb.append(";");
+                    sb.append("Сервер все еще недоступен! Обратитесь к администратору");
+                    sb.append(System.lineSeparator());
                 }
+                String res = sb.toString();
+                writer.write(res);
         } catch (IOException e) {
             e.printStackTrace();
         }
