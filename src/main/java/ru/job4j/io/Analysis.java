@@ -3,7 +3,7 @@ package ru.job4j.io;
 import java.io.*;
 
 public class Analysis {
-    public void unavailable(String source, String target) {
+    public static void unavailable(String source, String target) {
         boolean servUp = true;
         String servDownStart = null;
         StringBuilder sb = new StringBuilder();
