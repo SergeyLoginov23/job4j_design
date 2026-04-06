@@ -48,4 +48,12 @@ class ConfigTest {
         assertThatThrownBy(config::load)
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void whenExceptionWithNoValueForKey() {
+        String path = "./data/exception_no_value_for_key.properties";
+        Config config = new Config(path);
+        assertThatThrownBy(config::load)
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
