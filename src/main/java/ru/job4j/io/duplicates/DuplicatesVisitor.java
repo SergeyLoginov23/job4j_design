@@ -23,14 +23,8 @@ public class DuplicatesVisitor extends SimpleFileVisitor<Path> {
     public FileVisitResult visitFile(Path file,
                                      BasicFileAttributes attributes) throws IOException {
         FileProperty fileProperty = new FileProperty(attributes.size(), file.getFileName().toString());
-<<<<<<< HEAD
+
         filesByProperty.computeIfAbsent(fileProperty, k -> new ArrayList<>()).add(file);
-=======
-        if (!filesByProperty.containsKey(fileProperty)) {
-            filesByProperty.put(fileProperty, new ArrayList<Path>());
-        }
-        filesByProperty.get(fileProperty).add(file);
->>>>>>> 118bd7dfd6ce312914bf145ec4375f40862bc86a
         return super.visitFile(file, attributes);
     }
 }
