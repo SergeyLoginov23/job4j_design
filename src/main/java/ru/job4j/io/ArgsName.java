@@ -14,7 +14,7 @@ public class ArgsName {
         return values.get(key);
     }
 
-    private void parse(String[] args) {
+    void parse(String[] args) {
         for (int i = 0; i < args.length;  i++) {
             String trimmed = args[i].trim();
             if (trimmed.isEmpty()) {
