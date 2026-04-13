@@ -28,9 +28,6 @@ public class ArgsName {
             }
             String[] words = trimmed.split("=", 2);
             String key = words[0].trim();
-            if (key.charAt(0) != '-') {
-                throw new IllegalArgumentException("Key must start with '-'");
-            }
             key = key.substring(1);
             String value = words[1].trim();
             if (key.isEmpty()) {
