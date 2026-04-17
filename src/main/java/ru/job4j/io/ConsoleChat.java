@@ -27,15 +27,15 @@ public class ConsoleChat {
         while (run) {
             String line = reader.readLine();
             log.add("User: " + line);
-            if (line.equals(OUT)) {
+            if (OUT.equals(line)) {
                 run = false;
                 continue;
             }
-            if (line.equals(STOP)) {
+            if (STOP.equals(line)) {
                 speak = false;
                 continue;
             }
-            if (line.equals(CONTINUE)) {
+            if (CONTINUE.equals(line)) {
                 speak = true;
                 continue;
             }
