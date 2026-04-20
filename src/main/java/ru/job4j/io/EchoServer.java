@@ -17,24 +17,21 @@ public class EchoServer {
                     try (OutputStream output = socket.getOutputStream();
                          BufferedReader input = new BufferedReader(
                                  new InputStreamReader(socket.getInputStream()))) {
-                                 output.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
-                                    for (String string = input.readLine(); string != null && !string.isEmpty(); string = input.readLine()) {
-                                        if (string.contains(MSG)) {
-                                            int startIndex = string.indexOf(MSG) + MSG.length();
-                                            string = string.substring(startIndex);
-                                            string = string.substring(0, string.indexOf(" "));
-                                            if (EXIT.equals(string)) {
-                                                server.close();
-                                                break;
-                                            }
-                                            if (HELLO.equals(string)) {
-                                                output.write(HELLO.getBytes());
-                                                continue;
-                                            }
-                                            output.write(string.getBytes());
-                                        }
-                                    }
-                                    output.flush();
+                                     output.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
+                                     String string = input.readLine();
+                                     if (string.contains(MSG)) {
+                                         int startIndex = string.indexOf(MSG) + MSG.length();
+                                         string = string.substring(startIndex);
+                                         string = string.substring(0, string.indexOf(" "));
+                                         if (EXIT.equals(string)) {
+                                             server.close();
+                                         } else if (HELLO.equals(string)) {
+                                             output.write(HELLO.getBytes());
+                                         } else {
+                                             output.write(string.getBytes());
+                                         }
+                                     }
+                                     output.flush();
                                 }
                 } catch (IOException e) {
                     if (server.isClosed()) {
