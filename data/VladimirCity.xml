@@ -1,0 +1,9 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<city name="Vladimir" age="1035" capital="false">
+    <landmark name="Golden Gate" age = "862"/>
+    <streets>
+        <street>Lenina</street>
+        <street>Pobedy</street>
+        <street>Mira</street>
+    </streets>
+</city>
