@@ -4,6 +4,14 @@ public class Landmark {
     private final String name;
     private final int age;
 
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
     public Landmark(String name, int age) {
         this.name = name;
         this.age = age;

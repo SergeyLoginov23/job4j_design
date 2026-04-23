@@ -10,10 +10,30 @@ public class City {
     private final Landmark landmark;
     private final String[] streets;
 
-    public City(boolean capital, int age, String name, Landmark landmark, String[] streets) {
-        this.capital = capital;
-        this.age = age;
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public boolean isCapital() {
+        return capital;
+    }
+
+    public Landmark getLandmark() {
+        return landmark;
+    }
+
+    public String[] getStreets() {
+        return streets;
+    }
+
+    public City(String name, int age, boolean capital,   Landmark landmark, String[] streets) {
         this.name = name;
+        this.age = age;
+        this.capital = capital;
         this.landmark = landmark;
         this.streets = streets;
     }
